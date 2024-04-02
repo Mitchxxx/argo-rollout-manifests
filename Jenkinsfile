@@ -1,7 +1,7 @@
 node {
     def app
     
-    env.IMAGE = mitchxxx/bluegreen-rollout
+    env.IMAGE = 'mitchxxx/bluegreen-rollout'
 
     stage('Clone repo'){
         script {
