@@ -4,6 +4,9 @@ node {
     env.IMAGE = 'mitchxxx/bluegreen-rollout'
 
     stage('Clone repo'){
+        git branch: 'main', url: 'https://github.com/Mitchxxx/argo-rollout-manifests.git'
+    }
+    stage('Update GIT') {
         script {
             catchError(buildResult: 'SUCCESS', stageResult: 'FAILURE') {
                 withCredentials([usernamePassword(credentialsId: 'github-mitchel', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
